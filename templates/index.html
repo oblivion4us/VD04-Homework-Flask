@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Текущее время</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #clock-container {
+            text-align: center;
+            font-size: 2em; /* Общий размер шрифта для надписи и времени */
+        }
+        #clock {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock-container">
+        <div>Текущее время</div>
+        <div id="clock"></div>
+    </div>
+    <script>
+        function updateTime() {
+            const clockElement = document.getElementById('clock');
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime(); // начальное обновление времени
+    </script>
+</body>
+</html>
